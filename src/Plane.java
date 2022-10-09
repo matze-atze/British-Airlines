@@ -1,3 +1,7 @@
+/**
+* @author Matthias Vollmer
+*/
+
 import java.util.HashSet;
 import java.util.Set;
 
