@@ -1,3 +1,4 @@
+import java.nio.ByteOrder;
 import java.util.Date;
 
 /**
@@ -21,12 +22,12 @@ public class Flight {
     private Pilot[] pilots = new Pilot[2];                  // Piloten die den Flug durchführen
 
     private int boardkartenZaehler = 0;                     // Interne Variable für Anzahl der Boardkarten
-    private Boardkarte[] boardkartes = new Boardkarte[853]; // Boardkarten die für den Flug erstellt wurden
+    private BoardingCard[] boardkartes = new BoardingCard[853]; // Boardkarten die für den Flug erstellt wurden
 
     private int passagierZaehler = 0;                       // Interne Variable für die Anzahl der Passagiere
     private Passenger[] passagiers = new Passenger[853];    // Passagiere die in dem Flug mit fliegen
 
-    public Flight(Date datum, String flugNummer, Airport startFlughafen, Airport zielFlughafen, Plane flugzeug, Pilot[] pilots, Boardkarte[] boardkartes, Passenger[] passagiers) {
+    public Flight(Date datum, String flugNummer, Airport startFlughafen, Airport zielFlughafen, Plane flugzeug, Pilot[] pilots, BoardingCard[] boardkartes, Passenger[] passagiers) {
         this.datum = datum;
         this.flugNummer = flugNummer;
 
@@ -40,7 +41,7 @@ public class Flight {
             pilotZaehler++;
         }
 
-        for (Boardkarte boardkarte : boardkartes) {
+        for (BoardingCard boardkarte : boardkartes) {
             this.boardkartes[boardkartenZaehler] = boardkarte;
             boardkartenZaehler++;
         }
@@ -77,7 +78,7 @@ public class Flight {
         return flugzeug;
     }
 
-    public Boardkarte[] getBoardkartes() {
+    public BoardingCard[] getBoardkartes() {
         return boardkartes;
     }
 
@@ -111,7 +112,7 @@ public class Flight {
         this.flugzeug = flugzeug;
     }
 
-    public void setBoardkartes(Boardkarte[] boardkartes) {
+    public void setBoardkartes(BoardingCard[] boardkartes) {
         this.boardkartes = boardkartes;
     }
 
@@ -134,8 +135,8 @@ public class Flight {
     /**
      * Hinzufügen von Boardkart/en zum Flug
      */
-    public void addBoardKarte(Boardkarte... boardkarten) {
-        for (Boardkarte boardkarte : boardkarten) {
+    public void addBoardKarte(BoardingCard... boardkarten) {
+        for (BoardingCard boardkarte : boardkarten) {
             boardkartes[boardkartenZaehler] = boardkarte;
             boardkartenZaehler++;
         }
