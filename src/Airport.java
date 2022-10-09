@@ -8,7 +8,7 @@
 public class Airport {
     private String name;
     private String iataCode;
-    private City einzugsGebiet; //association
+    private City catchmentArea; //association // deutsch: Einzugsgebiet
     private City[] cities;
     private Flight[] flights;
     private String departures;
@@ -16,13 +16,13 @@ public class Airport {
     private String iatacode;
 
 
-    public Airport(String name, String iataCode, City einzugsGebiet, City[] cities, Flight[] flight, String departures, String arrivals){
+    public Airport(String name, String iataCode, City catchmentArea, City[] cities, Flight[] flight, String departures, String arrivals){
 
         this.name = name;
 
         this.iataCode = iataCode;
 
-        this.einzugsGebiet = einzugsGebiet;
+        this.catchmentArea = catchmentArea;
 
         this.cities = cities;
 
@@ -53,12 +53,12 @@ public class Airport {
     }
 
     //einzugsGebiet
-    public City getEinzugsGebiet(){
-        return einzugsGebiet;
+    public City getCatchmentArea(){
+        return catchmentArea;
     }
 
-    public void setEinzugsGebiet(City einzugsGebiet){
-        this.einzugsGebiet= einzugsGebiet;
+    public void setCatchmentArea(City catchmentArea){
+        this.catchmentArea = catchmentArea;
     }
 
     //city
@@ -106,8 +106,6 @@ public class Airport {
             }
 
 
-
-
     public void reserve(){
         System.out.println(toString() + "reserve");
     }
@@ -116,5 +114,8 @@ public class Airport {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "<Airline> <"+name+" "+ iataCode +"> ";
+    }
 }

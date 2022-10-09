@@ -45,4 +45,8 @@ public class City {
     public void setAirport(Airport airport){
         this.airport = airport;
     }
+
+    public String toString(){
+        return "<"+getClass().getSimpleName()+">  <" + name +">";
+    }
 }

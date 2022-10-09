@@ -67,4 +67,8 @@ public class Plane {
     public void deIce() {
         System.out.println(toString() + "is de-iced");
     }
+
+    public String toString() {
+        return "<" + getClass().getSimpleName() + "> <" + serialNumber + ">";
+    }
 }

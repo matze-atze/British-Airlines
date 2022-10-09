@@ -167,4 +167,8 @@ public class Flight {
     public void verspaeten(){
         System.out.println(toString() + "verspaetet");
     }
+
+    public String toString(){
+        return "<"+getClass().getSimpleName()+">  <" + flugNummer +">";
+    }
 }

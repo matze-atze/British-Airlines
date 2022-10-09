@@ -1,43 +1,34 @@
 import java.util.Set;
 import java.util.HashSet;
-import java.time.LocalTime;
 
 /**
  * @author Kadir Erzurum
  */
 public class Pilot
 {
-    private String nameCaptain;
-    private String nameCoPilot;
+    private String name;
     protected Airline arbeitGeber;
     private Set<Flight> tasks = new HashSet<>();
 
-    public Pilot(String xNameCaptain, String xNameCoPilot){
-        this.nameCaptain = xNameCaptain;
-        this.nameCoPilot = xNameCoPilot;
+    public Pilot(String name){
+        this.name = name;
     }
 
-    public String getNameCaptain() {
-        return nameCaptain;
+    public String getName() {
+        return name;
     }
 
-    public void setNameCaptain(String namePilot){
-        this.nameCaptain = namePilot;
+    public void setName(String namePilot){
+        this.name = namePilot;
     }
 
     public void fire(){
-        nameCaptain = null;
-        nameCoPilot = null;
+        name = null;
         System.out.println(toString() + " got fired.");
     }
 
     public void firePilot(){
-        nameCaptain = null;
-        System.out.println(toString() + " got fired.");
-    }
-
-    public void fireCoPilot(){
-        nameCoPilot = null;
+        name = null;
         System.out.println(toString() + " got fired.");
     }
 
@@ -45,10 +36,13 @@ public class Pilot
         System.out.println(toString()+" is delayed.");
     }
 
-    public String hire(String hirePilot, String hireCoPilot){
-        this.nameCaptain = hirePilot;
-        this.nameCoPilot = hireCoPilot;
-        return this.nameCaptain + " and " + this.nameCoPilot + "got hired";
+    public String hire(Airline arbeitGeber){
+        this.arbeitGeber = arbeitGeber;
+        return this.name + " got hired by " + arbeitGeber.getName();
     }
 
+    @Override
+    public String toString() {
+        return "<" + getClass().getSimpleName() + "> <" + name + ">";
+    }
 }

@@ -6,9 +6,9 @@ public class BoardingCard {
   private final int identificationNumber;
   private final String gateCode;
   private final LocalTime boardingTime;
-  private Passenger besitzer; //ein Passagier bucht einen Flug, aber er bekommt die Bordkarte und Besitzt sie
-  private Flight ereignis; //der Flug/Busreise ist das Event/ das Ereignis der BoardingCard/Teilnehmerkarte?
-  private Seat reservierbares; //mehrere BoardingCars können den gleichen Sitz reservieren in einem Planungszeitraum
+  private Passenger owner; //ein Passagier bucht einen Flug, aber er bekommt die Bordkarte und Besitzt sie
+  private Flight event; //der Flug/Busreise ist das Event/ das Ereignis der BoardingCard/Teilnehmerkarte?
+  private Seat reservables; //mehrere BoardingCars können den gleichen Sitz reservieren in einem Planungszeitraum
 
 
   public BoardingCard(int identificationNumber, String gateCode, LocalTime boardingTime){
@@ -34,32 +34,32 @@ public class BoardingCard {
     return boardingTime;
   }
 
-  public Passenger getBesitzer() {
-    return besitzer;
+  public Passenger getOwner() {
+    return owner;
   }
 
-  public Flight getEreignis() {
-    return ereignis;
+  public Flight getEvent() {
+    return event;
   }
 
-  public Seat getReservierbares() {
-    return reservierbares;
+  public Seat getReservables() {
+    return reservables;
   }
 
-  public void setBesitzer(Passenger besitzer) {
-    this.besitzer = besitzer;
+  public void setOwner(Passenger owner) {
+    this.owner = owner;
   }
 
-  public void setEreignis(Flight ereignis) {
-    this.ereignis = ereignis;
+  public void setEvent(Flight event) {
+    this.event = event;
   }
 
   public void setReservierbare(Seat reservierbares) {
-    this.reservierbares = reservierbares;
+    this.reservables = reservierbares;
   }
 
   public String toString(){
-    return ""+getClass()+ "  " + identificationNumber; //kennzeichendesAttribut
+    return "<"+getClass().getSimpleName()+">  <" + identificationNumber+">"; //kennzeichendesAttribut
   }
 
   public void scannen(){ //auch als boolean möglich, auf null prüfen können

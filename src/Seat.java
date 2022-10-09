@@ -30,4 +30,8 @@ public class Seat {
     public void reserve(Passenger passenger) {
         reserver = passenger;
     }
+
+    public String toString() {
+        return "<" + getClass().getSimpleName() + "> <" + seat + " " + row + ">";
+    }
 }
