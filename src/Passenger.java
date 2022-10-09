@@ -1,5 +1,8 @@
 import java.util.HashSet;
 
+/**
+ * @author Philipp Flödl
+ */
 public class Passenger {
   private final String name;
   private HashSet<BoardingCard> berechtigungen = new HashSet<>();

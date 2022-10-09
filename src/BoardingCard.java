@@ -4,16 +4,17 @@ import java.time.LocalTime;
  */
 public class BoardingCard {
   private final int identificationNumber;
-  //private final String designator; //Kürzel der Fluggesellschaft(wir haben keine Assoziation), die die Bordkarte rausbringt
   private final String gateCode;
-  private final LocalTime boardingTime; //Date besser? oder char[4]
+  private final LocalTime boardingTime;
   private Passenger besitzer; //ein Passagier bucht einen Flug, aber er bekommt die Bordkarte und Besitzt sie
   private Flight ereignis; //der Flug/Busreise ist das Event/ das Ereignis der BoardingCard/Teilnehmerkarte?
   private Seat reservierbares; //mehrere BoardingCars können den gleichen Sitz reservieren in einem Planungszeitraum
 
-  //theFlight, theSeat wäre ich einverstanden, und designator kann weg und anderer Datentyp bei boardingTime
 
   public BoardingCard(int identificationNumber, String gateCode, LocalTime boardingTime){
+    if (identificationNumber < 0){
+      throw new IllegalArgumentException(identificationNumber+" as identificationNumber is negativ.");
+    }
     this.identificationNumber = identificationNumber;
     //this.designator = designator;
     this.gateCode = gateCode;
@@ -24,10 +25,6 @@ public class BoardingCard {
   public int getIdentificationNumber() {
     return identificationNumber;
   }
-
-  /*public String getDesignator() {
-    return designator;
-  }*/
 
   public String getGateCode() {
     return gateCode;
