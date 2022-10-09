@@ -44,8 +44,10 @@ public class Plane {
         this.seats = seats;
     }
 
-    public void addSeats(Seat seat) {
-        this.seats.add(seat);
+    public void addSeats(Seat... seats) {
+        for (int i = 0; i < seats.length; i++) {
+            this.seats.add(seats[i]);
+        }
     }
 
     public void takeOff() {
