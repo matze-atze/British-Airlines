@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.time.LocalTime;
 
 /**
- * @author Kadir
+ * @author Kadir Erzurum
  */
 public class Pilot
 {
