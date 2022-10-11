@@ -8,7 +8,7 @@ import java.util.HashSet;
 public class Pilot
 {
     private String name;
-    protected Airline arbeitGeber;
+    protected Airline employer;
     private Set<Flight> tasks = new HashSet<>();
 
     public Pilot(String name){
@@ -38,9 +38,9 @@ public class Pilot
         flight.delay(delayedTo);
     }
 
-    public String hire(Airline arbeitGeber){
-        this.arbeitGeber = arbeitGeber;
-        return this.name + " got hired by " + arbeitGeber.getName();
+    public String hire(Airline employer){
+        this.employer = employer;
+        return this.name + " got hired by " + employer.getName();
     }
 
     @Override

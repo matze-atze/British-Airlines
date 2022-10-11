@@ -5,7 +5,7 @@ import java.util.HashSet;
  */
 public class Passenger {
   private final String name;
-  private HashSet<BoardingCard> berechtigungen = new HashSet<>();
+  private HashSet<BoardingCard> permissions = new HashSet<>();
 
   public Passenger(String name){
     this.name = name;
@@ -16,14 +16,14 @@ public class Passenger {
     return name;
   }
 
-  public HashSet<BoardingCard> getBerechtigungen() {
-    return berechtigungen;
+  public HashSet<BoardingCard> getPermissions() {
+    return permissions;
   }
 
-  public boolean addBerechtigung(BoardingCard nächsteBerechtigung){
+  public boolean addBerechtigung(BoardingCard nextPermission){
     boolean success = false;
-    if (nächsteBerechtigung!=null){
-      berechtigungen.add(nächsteBerechtigung);
+    if (nextPermission!=null){
+      permissions.add(nextPermission);
       success = true;
     }
     return success;

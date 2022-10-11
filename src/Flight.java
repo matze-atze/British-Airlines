@@ -10,45 +10,45 @@ public class Flight {
 
     private Pilot captian;
     private Pilot coPilot;
-    private Date datum;                                     // Datum des Fluges (z.B. 08.10.2022)
-    private String flugNummer;                              // Flugnummner (z.B. AZ.0407)
+    private Date date;                                     // Datum des Fluges (z.B. 08.10.2022)
+    private String flightNumber;                              // Flugnummner (z.B. AZ.0407)
 
-    private Airport startFlughafen;                       // Flughafen an dem der Flug startet (z.B. [ATL] - Atlanta)
-    private Airport zielFlughafen;                        // FLughafen an dem der Flug landed (z.B. [FRA] - Frankfurt am Main]
+    private Airport startAirport;                       // Flughafen an dem der Flug startet (z.B. [ATL] - Atlanta)
+    private Airport destAirport;                        // FLughafen an dem der Flug landed (z.B. [FRA] - Frankfurt am Main]
 
-    private Plane flugzeug;                              // Flugzeug mit dem der FLug durch geführt wird (z.B. Boeing 123)
+    private Plane plane;                              // Flugzeug mit dem der FLug durch geführt wird (z.B. Boeing 123)
 
-    private int pilotZaehler = 0;                           // Interne Variable für Anzahl der Piloten
+    private int pilotCounter = 0;                           // Interne Variable für Anzahl der Piloten
     private Pilot[] pilots = new Pilot[2];                  // Piloten die den Flug durchführen
 
-    private int boardkartenZaehler = 0;                     // Interne Variable für Anzahl der Boardkarten
-    private BoardingCard[] boardkartes = new BoardingCard[853]; // Boardkarten die für den Flug erstellt wurden
+    private int BoardCardCounter = 0;                     // Interne Variable für Anzahl der Boardkarten
+    private BoardingCard[] BoardCards = new BoardingCard[853]; // Boardkarten die für den Flug erstellt wurden
 
-    private int passagierZaehler = 0;                       // Interne Variable für die Anzahl der Passagiere
+    private int passengerCounter = 0;                       // Interne Variable für die Anzahl der Passagiere
     private Passenger[] passengers = new Passenger[853];    // Passagiere die in dem Flug mit fliegen
 
-    public Flight(Date datum, String flugNummer, Airport startFlughafen, Airport zielFlughafen, Plane flugzeug, Pilot[] pilots, BoardingCard[] boardkartes, Passenger[] passagiers, Pilot captian) {
-        this.datum = datum;
-        this.flugNummer = flugNummer;
+    public Flight(Date date, String flightNumber, Airport startAirport, Airport destAirport, Plane plane, Pilot[] pilots, BoardingCard[] boardingCard, Passenger[] passengers, Pilot captian) {
+        this.date = date;
+        this.flightNumber = flightNumber;
 
-        this.startFlughafen = startFlughafen;
-        this.zielFlughafen = zielFlughafen;
+        this.startAirport = startAirport;
+        this.destAirport = destAirport;
 
-        this.flugzeug = flugzeug;
+        this.plane = plane;
 
         for (Pilot pilot : pilots) {
-            this.pilots[pilotZaehler] = pilot;
-            pilotZaehler++;
+            this.pilots[pilotCounter] = pilot;
+            pilotCounter++;
         }
 
-        for (BoardingCard boardkarte : boardkartes) {
-            this.boardkartes[boardkartenZaehler] = boardkarte;
-            boardkartenZaehler++;
+        for (BoardingCard boardCard : boardingCard) {
+            this.BoardCards[BoardCardCounter] = boardCard;
+            BoardCardCounter++;
         }
 
-        for (Passenger passagier : passagiers) {
-            this.passengers[passagierZaehler] = passagier;
-            passagierZaehler++;
+        for (Passenger passenger : passengers) {
+            this.passengers[passengerCounter] = passenger;
+            passengerCounter++;
         }
 
         this.captian = captian;
@@ -66,32 +66,32 @@ public class Flight {
         return coPilot;
     }
 
-    public String getFlugNummer() {
-        return flugNummer;
+    public String getFlightNumber() {
+        return flightNumber;
     }
 
-    public Date getDatum() {
-        return datum;
+    public Date getDate() {
+        return date;
     }
 
-    public Airport getStartFlughafen() {
-        return startFlughafen;
+    public Airport getStartAirport() {
+        return startAirport;
     }
 
-    public Airport getZielFlughafen() {
-        return zielFlughafen;
+    public Airport getDestAirport() {
+        return destAirport;
     }
 
     public Pilot[] getPilots() {
         return pilots;
     }
 
-    public Plane getFlugzeug() {
-        return flugzeug;
+    public Plane getPlane() {
+        return plane;
     }
 
-    public BoardingCard[] getBoardkartes() {
-        return boardkartes;
+    public BoardingCard[] getBoardCards() {
+        return BoardCards;
     }
 
     public Passenger[] getPassengers() {
@@ -108,32 +108,32 @@ public class Flight {
         this.coPilot = coPilot;
     }
 
-    public void setFlugNummer(String flugNummer) {
-        this.flugNummer = flugNummer;
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
     }
 
-    public void setDatum(Date datum) {
-        this.datum = datum;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public void setStartFlughafen(Airport startFlughafen) {
-        this.startFlughafen = startFlughafen;
+    public void setStartAirport(Airport startAirport) {
+        this.startAirport = startAirport;
     }
 
-    public void setZielFlughafen(Airport zielFlughafen) {
-        this.zielFlughafen = zielFlughafen;
+    public void setDestAirport(Airport destAirport) {
+        this.destAirport = destAirport;
     }
 
     public void setPilots(Pilot[] pilots) {
         this.pilots = pilots;
     }
 
-    public void setFlugzeug(Plane flugzeug) {
-        this.flugzeug = flugzeug;
+    public void setPlane(Plane plane) {
+        this.plane = plane;
     }
 
-    public void setBoardkartes(BoardingCard[] boardkartes) {
-        this.boardkartes = boardkartes;
+    public void setBoardCards(BoardingCard[] boardCards) {
+        this.BoardCards = boardCards;
     }
 
     public void setPassengers(Passenger[] passengers) {
@@ -145,20 +145,20 @@ public class Flight {
     /**
      * Hinzufügen vom Pilot/en zum Flug
      */
-    public void addPilot(Pilot... piloten) {
-        for (Pilot pilot : piloten) {
-            pilots[pilotZaehler] = pilot;
-            pilotZaehler++;
+    public void addPilot(Pilot... pilotsToAdd) {
+        for (Pilot pilot : pilotsToAdd) {
+            pilots[pilotCounter] = pilot;
+            pilotCounter++;
         }
     }
 
     /**
      * Hinzufügen von Boardkart/en zum Flug
      */
-    public void addBoardKarte(BoardingCard... boardkarten) {
-        for (BoardingCard boardkarte : boardkarten) {
-            boardkartes[boardkartenZaehler] = boardkarte;
-            boardkartenZaehler++;
+    public void addBoardKarte(BoardingCard... boardCards) {
+        for (BoardingCard boardkarte : boardCards) {
+            BoardCards[BoardCardCounter] = boardkarte;
+            BoardCardCounter++;
         }
     }
 
@@ -167,29 +167,22 @@ public class Flight {
      */
     public void addPassagier(Passenger... passengers) {
         for (Passenger passenger : passengers) {
-            this.passengers[passagierZaehler] = passenger;
-            passagierZaehler++;
+            this.passengers[passengerCounter] = passenger;
+            passengerCounter++;
         }
     }
 
-    //Methode
-
-    /**
-     * Flug wird eingestellet
-     */
-    public void einstellen() {
-        System.out.println(toString() + "eingestellt");
-    }
+    //Methoden
 
     /**
      * Flug verspaetet sich
      */
     public void delay(Date delayedTo){
-        setDatum(delayedTo);
+        setDate(delayedTo);
         System.out.println(toString() + "verspaetet sich - neue Abflugszeit: " + delayedTo);
     }
 
     public String toString(){
-        return getClass().getSimpleName()+ " " + flugNummer;
+        return getClass().getSimpleName()+ " " + flightNumber;
     }
 }

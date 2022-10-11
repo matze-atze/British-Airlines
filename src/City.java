@@ -7,13 +7,13 @@
 
 public class City {
     private String name;
-    private Airport verkehrseinrichtingen;
+    private Airport trafficFacility; // deutsch: Verkehrseinrichtung
     private Airport airport;
 
 
-    public City(String name, Airport verkehrseinrichtungen, Airport airport){
+    public City(String name, Airport trafficFacility, Airport airport){
         this.name = name;
-        this.verkehrseinrichtingen = verkehrseinrichtungen;
+        this.trafficFacility = trafficFacility;
         this.airport= airport;
 
 
@@ -29,12 +29,12 @@ public class City {
     }
 
     //verkehrseinrichtungen
-    public Airport getVerkehrseinrichtingen(){
-        return verkehrseinrichtingen;
+    public Airport getTrafficFacility(){
+        return trafficFacility;
     }
 
-    public void setVerkehrseinrichtingen(Airport verkehrseinrichtingen) {
-        this.verkehrseinrichtingen = verkehrseinrichtingen;
+    public void setTrafficFacility(Airport trafficFacility) {
+        this.trafficFacility = trafficFacility;
     }
 
     //airport
