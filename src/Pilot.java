@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -32,8 +33,9 @@ public class Pilot
         System.out.println(toString() + " got fired.");
     }
 
-    public void delay(){
-        System.out.println(toString()+" is delayed.");
+    public void delay(Date delayedTo, Flight flight){
+        if (this.tasks.contains(flight)) return;
+        flight.delay(delayedTo);
     }
 
     public String hire(Airline arbeitGeber){
@@ -43,6 +45,6 @@ public class Pilot
 
     @Override
     public String toString() {
-        return "<" + getClass().getSimpleName() + "> <" + name + ">";
+        return getClass().getSimpleName() + " " + name;
     }
 }

@@ -52,7 +52,7 @@ public class Airline
 
     @Override
     public String toString() {
-        return "<Airline> <"+name+" "+ IATAcode +"> ";
+        return getClass().getSimpleName()+" "+ IATAcode;
     }
 
 }

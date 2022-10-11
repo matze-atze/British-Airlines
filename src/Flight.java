@@ -1,4 +1,3 @@
-import java.nio.ByteOrder;
 import java.util.Date;
 
 /**
@@ -9,7 +8,8 @@ import java.util.Date;
  */
 public class Flight {
 
-
+    private Pilot captian;
+    private Pilot coPilot;
     private Date datum;                                     // Datum des Fluges (z.B. 08.10.2022)
     private String flugNummer;                              // Flugnummner (z.B. AZ.0407)
 
@@ -25,9 +25,9 @@ public class Flight {
     private BoardingCard[] boardkartes = new BoardingCard[853]; // Boardkarten die für den Flug erstellt wurden
 
     private int passagierZaehler = 0;                       // Interne Variable für die Anzahl der Passagiere
-    private Passenger[] passagiers = new Passenger[853];    // Passagiere die in dem Flug mit fliegen
+    private Passenger[] passengers = new Passenger[853];    // Passagiere die in dem Flug mit fliegen
 
-    public Flight(Date datum, String flugNummer, Airport startFlughafen, Airport zielFlughafen, Plane flugzeug, Pilot[] pilots, BoardingCard[] boardkartes, Passenger[] passagiers) {
+    public Flight(Date datum, String flugNummer, Airport startFlughafen, Airport zielFlughafen, Plane flugzeug, Pilot[] pilots, BoardingCard[] boardkartes, Passenger[] passagiers, Pilot captian) {
         this.datum = datum;
         this.flugNummer = flugNummer;
 
@@ -47,13 +47,25 @@ public class Flight {
         }
 
         for (Passenger passagier : passagiers) {
-            this.passagiers[passagierZaehler] = passagier;
+            this.passengers[passagierZaehler] = passagier;
             passagierZaehler++;
         }
+
+        this.captian = captian;
+
         System.out.println(toString() + "angeleg");
     }
 
     // GETTER
+
+    public Pilot getCaptian() {
+        return captian;
+    }
+
+    public Pilot getCoPilot() {
+        return coPilot;
+    }
+
     public String getFlugNummer() {
         return flugNummer;
     }
@@ -82,11 +94,19 @@ public class Flight {
         return boardkartes;
     }
 
-    public Passenger[] getPassagiers() {
-        return passagiers;
+    public Passenger[] getPassengers() {
+        return passengers;
     }
 
     // SETTER
+
+
+    public void setCaptian(Pilot captian) {
+        this.captian = captian;
+    }
+    public void setCoPilot(Pilot coPilot) {
+        this.coPilot = coPilot;
+    }
 
     public void setFlugNummer(String flugNummer) {
         this.flugNummer = flugNummer;
@@ -116,8 +136,8 @@ public class Flight {
         this.boardkartes = boardkartes;
     }
 
-    public void setPassagiers(Passenger[] passagiers) {
-        this.passagiers = passagiers;
+    public void setPassengers(Passenger[] passengers) {
+        this.passengers = passengers;
     }
 
     // SPECIAL SETTER
@@ -147,7 +167,7 @@ public class Flight {
      */
     public void addPassagier(Passenger... passengers) {
         for (Passenger passenger : passengers) {
-            this.passagiers[passagierZaehler] = passenger;
+            this.passengers[passagierZaehler] = passenger;
             passagierZaehler++;
         }
     }
@@ -164,11 +184,12 @@ public class Flight {
     /**
      * Flug verspaetet sich
      */
-    public void verspaeten(){
-        System.out.println(toString() + "verspaetet");
+    public void delay(Date delayedTo){
+        setDatum(delayedTo);
+        System.out.println(toString() + "verspaetet sich - neue Abflugszeit: " + delayedTo);
     }
 
     public String toString(){
-        return "<"+getClass().getSimpleName()+">  <" + flugNummer +">";
+        return getClass().getSimpleName()+ " " + flugNummer;
     }
 }

@@ -30,7 +30,7 @@ public class Passenger {
   }
 
   public String toString(){
-    return "<"+ getClass().getSimpleName()+"> <"+name+">";
+    return getClass().getSimpleName()+" "+name;
   }
 
   public void delay(){

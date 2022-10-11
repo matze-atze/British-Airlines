@@ -59,7 +59,7 @@ public class BoardingCard {
   }
 
   public String toString(){
-    return "<"+getClass().getSimpleName()+">  <" + identificationNumber+">"; //kennzeichendesAttribut
+    return getClass().getSimpleName()+ " " + identificationNumber;
   }
 
   public void scannen(){ //auch als boolean möglich, auf null prüfen können

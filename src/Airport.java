@@ -116,6 +116,6 @@ public class Airport {
 
     @Override
     public String toString() {
-        return "<Airline> <"+name+" "+ iataCode +"> ";
+        return getClass().getSimpleName() + iataCode;
     }
 }

@@ -69,6 +69,6 @@ public class Plane {
     }
 
     public String toString() {
-        return "<" + getClass().getSimpleName() + "> <" + serialNumber + ">";
+        return getClass().getSimpleName() + " " + serialNumber;
     }
 }
