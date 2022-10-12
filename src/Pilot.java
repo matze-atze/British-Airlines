@@ -43,6 +43,10 @@ public class Pilot
         return this.name + " got hired by " + employer.getName();
     }
 
+    public void show(){
+        System.out.println("Flown by " + getName());
+    }
+
     @Override
     public String toString() {
         return getClass().getSimpleName() + " " + name;
