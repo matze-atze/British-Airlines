@@ -1,5 +1,5 @@
 public class Seat {
-    private enum SeatClass {
+    enum SeatClass {
         FIRST, BUSINESS, ECONOMY
     }
 

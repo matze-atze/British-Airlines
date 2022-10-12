@@ -11,12 +11,9 @@ public class City {
     private Airport airport;
 
 
-    public City(String name, Airport trafficFacility, Airport airport){
+    // public City(String name, Airport trafficFacility, Airport airport){     <-- alt, wär sonst mit Airport unmöglich
+    public City(String name){
         this.name = name;
-        this.trafficFacility = trafficFacility;
-        this.airport= airport;
-
-
     }
 
     //name

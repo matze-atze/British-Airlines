@@ -1,18 +1,20 @@
-import java.time.LocalTime;
+import java.math.BigInteger;
+import java.util.Date;
+
 /**
  * @author Philipp Flödl
  */
 public class BoardingCard {
-  private final int identificationNumber;
+  private final BigInteger identificationNumber;
   private final String gateCode;
-  private final LocalTime boardingTime;
+  private final Date boardingTime;
   private Passenger owner; //ein Passagier bucht einen Flug, aber er bekommt die Bordkarte und Besitzt sie
   private Flight event; //der Flug/Busreise ist das Event/ das Ereignis der BoardingCard/Teilnehmerkarte?
   private Seat reservables; //mehrere BoardingCars können den gleichen Sitz reservieren in einem Planungszeitraum
 
 
-  public BoardingCard(int identificationNumber, String gateCode, LocalTime boardingTime){
-    if (identificationNumber < 0){
+  public BoardingCard(BigInteger identificationNumber, String gateCode, Date boardingTime){
+    if (identificationNumber.compareTo(BigInteger.valueOf(0)) < 0){
       throw new IllegalArgumentException(identificationNumber+" as identificationNumber is negativ.");
     }
     this.identificationNumber = identificationNumber;
@@ -22,7 +24,7 @@ public class BoardingCard {
     System.out.println(toString()+" is created.");
   }
 
-  public int getIdentificationNumber() {
+  public BigInteger getIdentificationNumber() {
     return identificationNumber;
   }
 
@@ -30,7 +32,7 @@ public class BoardingCard {
     return gateCode;
   }
 
-  public LocalTime getBoardingTime() {
+  public Date getBoardingTime() {
     return boardingTime;
   }
 
