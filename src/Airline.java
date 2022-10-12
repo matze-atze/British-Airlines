@@ -107,15 +107,17 @@ public class Airline
         Plane A320 = new Plane("A320", "10000", 0.0F, "D-ABZI");
 
         // creating the Passengers
-        Passenger passenger1 = new Passenger("DillmannNMr");
+        Passenger passenger1 = buildPassenger1();
         Passenger passenger2 = new Passenger("HerrmannAMr");
+
 
         Flight toNewYork = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", frankfurtAirport,
                 newYorkAirport, A320, new Pilot[]{hermann, john}, new BoardingCard[] {cardToNy},
                 new Passenger[]{passenger1, passenger2}, hermann);
         toNewYork.setCoPilot(john);
-
     }
-
+    private static Passenger buildPassenger1() {
+        return new Passenger("DillmannNMr");
+    }
 }
 
