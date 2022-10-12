@@ -89,17 +89,19 @@ public class Airline
         Pilot hermann = new Pilot("HermannAMr");
         Pilot john = new Pilot("John Whitetaker");
 
-        // creating the 2 Cities (todo)
+        // creating the 2 Cities
         City frankfurt = new City("Frankfurt (Main)");
+        City newYork = new City("New York");
 
         // creating the Boarding Card
         BoardingCard cardToNy = new BoardingCard(new BigInteger("502675128554624"),"65 18:50 5D D", toArrivalDate);
 
         // creating the start Airport
-        City[] singletonFlight = {frankfurt};
+        City[] singletonFlight = {frankfurt, newYork};
 
         // creating the Airport
-        Airport startAirport = new Airport("Frankfurt", "FRA", frankfurt, singletonFlight, null);
+        Airport frankfurtAirport = new Airport("Frankfurt", "FRA", frankfurt, singletonFlight, null);
+        Airport newYorkAirport = new Airport("LaGuardia", "LGA", newYork, new City[]{newYork}, null);
 
         // creating the Plane
         Plane A320 = new Plane("A320", "10000", 0.0F, "D-ABZI");
@@ -108,8 +110,8 @@ public class Airline
         Passenger passenger1 = new Passenger("DillmannNMr");
         Passenger passenger2 = new Passenger("HerrmannAMr");
 
-        Flight toNewYork = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", startAirport,
-                null, A320, new Pilot[]{hermann, john}, new BoardingCard[] {cardToNy},
+        Flight toNewYork = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", frankfurtAirport,
+                newYorkAirport, A320, new Pilot[]{hermann, john}, new BoardingCard[] {cardToNy},
                 new Passenger[]{passenger1, passenger2}, hermann);
         toNewYork.setCoPilot(john);
 

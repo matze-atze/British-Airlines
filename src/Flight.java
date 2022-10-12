@@ -58,7 +58,7 @@ public class Flight {
 
         this.captian = captain;
 
-        System.out.println(toString() + "angeleg");
+        System.out.println(toString() + " is created");
     }
 
     // GETTER
