@@ -104,11 +104,11 @@ public class Airline
         Airport newYorkAirport = new Airport("LaGuardia", "LGA", newYork, new City[]{newYork}, null);
 
         // creating the Plane
-        Plane A320 = new Plane("A320", "10000", 0.0F, "D-ABZI");
+        Plane A320 = buildPlane();
 
         // creating the Passengers
         Passenger passenger1 = buildPassenger1();
-        Passenger passenger2 = new Passenger("HerrmannAMr");
+        Passenger passenger2 = buildPassenger2();
 
 
         Flight toNewYork = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", frankfurtAirport,
@@ -116,9 +116,14 @@ public class Airline
                 new Passenger[]{passenger1, passenger2}, captain);
         toNewYork.setCoPilot(copilot);
     }
+    private static Plane buildPlane() {return new Plane("A320", "10000", 0.0F, "D-ABZI");}
+
     private static Passenger buildPassenger1() {
         return new Passenger("DillmannNMr");
     }
+
+    private static Passenger buildPassenger2() { return new Passenger("HerrmannAMr");}
+
     private static Pilot buildCaptain(){
        return new Pilot("HermannAMr");
     }
