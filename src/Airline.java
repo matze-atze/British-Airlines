@@ -56,6 +56,6 @@ public class Airline
         return getClass().getSimpleName()+" "+ IATAcode;
     }
 
-
+    public void show() {System.out.println("Offered by " + getName() + " (" + getIATAcode() + ")");}
 }
 
