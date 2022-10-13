@@ -86,8 +86,8 @@ public class Airline
         Seat fromSeat = toSeat1;
 
         // creating the 2 Pilots
-        Pilot hermann = new Pilot("HermannAMr");
-        Pilot john = new Pilot("John Whitetaker");
+        Pilot captain = buildCaptain();
+        Pilot copilot = buildCopilot();
 
         // creating the 2 Cities
         City frankfurt = new City("Frankfurt (Main)");
@@ -112,12 +112,18 @@ public class Airline
 
 
         Flight toNewYork = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", frankfurtAirport,
-                newYorkAirport, A320, new Pilot[]{hermann, john}, new BoardingCard[] {cardToNy},
-                new Passenger[]{passenger1, passenger2}, hermann);
-        toNewYork.setCoPilot(john);
+                newYorkAirport, A320, new Pilot[]{captain, copilot}, new BoardingCard[] {cardToNy},
+                new Passenger[]{passenger1, passenger2}, captain);
+        toNewYork.setCoPilot(copilot);
     }
     private static Passenger buildPassenger1() {
         return new Passenger("DillmannNMr");
+    }
+    private static Pilot buildCaptain(){
+       return new Pilot("HermannAMr");
+    }
+    private static Pilot buildCopilot(){
+        return new Pilot("John Whitetaker");
     }
 }
 
