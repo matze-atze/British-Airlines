@@ -43,11 +43,11 @@ public class Airline
         this.employee = employee;
     }
 
-    public void addAngebote(Flight offer) {
+    public void addOffer(Flight offer) {
         this.offer.add(offer);
     }
 
-    public void addArbeitNehmer(Pilot employee) {
+    public void addEmployee(Pilot employee) {
         employee.hire(this);
     }
 

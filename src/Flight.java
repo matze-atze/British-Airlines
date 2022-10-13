@@ -168,7 +168,7 @@ public class Flight {
     /**
      * Hinzufügen von Boardkart/en zum Flug
      */
-    public void addBoardKarte(BoardingCard... boardCards) {
+    public void addBoardingCard(BoardingCard... boardCards) {
         for (BoardingCard boardkarte : boardCards) {
             BoardCards[BoardCardCounter] = boardkarte;
             BoardCardCounter++;
@@ -178,7 +178,7 @@ public class Flight {
     /**
      * Hinzufügen von Passagier/en zum Flug
      */
-    public void addPassagier(Passenger... passengers) {
+    public void addPassenger(Passenger... passengers) {
         for (Passenger passenger : passengers) {
             this.passengers[passengerCounter] = passenger;
             passengerCounter++;

@@ -11,7 +11,6 @@ public class Airport {
     private City catchmentArea; //association // deutsch: Einzugsgebiet
     private City[] cities;
     private Flight[] flights;
-    private String iatacode;
 
 
     public Airport(String name, String iataCode, City catchmentArea, City[] cities, Flight[] flight){
@@ -30,11 +29,11 @@ public class Airport {
         this.name = name;
     }
     //iataCode
-    public String getIatacode() {
-        return iatacode;
+    public String getIataCode() {
+        return iataCode;
     }
-    public void setIatacode(String iatacode) {
-        this.iatacode = iatacode;
+    public void setIataCode(String iataCode) {
+        this.iataCode = iataCode;
     }
 
     //einzugsGebiet

@@ -56,15 +56,15 @@ public class BoardingCard {
     this.event = event;
   }
 
-  public void setReservierbare(Seat reservierbares) {
-    this.reservables = reservierbares;
+  public void setReservables(Seat reservables) {
+    this.reservables = reservables;
   }
 
   public String toString(){
     return getClass().getSimpleName()+ " " + identificationNumber;
   }
 
-  public void scannen(){ //auch als boolean möglich, auf null prüfen können
+  public void scan(){ //auch als boolean möglich, auf null prüfen können
     System.out.println(toString()+" is scanned.");
   }
 }
