@@ -58,7 +58,7 @@ public class Flight {
 
         this.captain = captain;
 
-        System.out.println(toString() + " is created");
+        System.out.println(toString() + " on 2022-10-12");
     }
 
     // GETTER
