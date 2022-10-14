@@ -7,7 +7,7 @@ import java.util.HashSet;
  */
 public class Pilot
 {
-    private String name;
+    private static String name;
     protected Airline employer;
     private Set<Flight> tasks = new HashSet<>();
 
@@ -15,7 +15,7 @@ public class Pilot
         this.name = name;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -43,8 +43,16 @@ public class Pilot
         return this.name + " got hired by " + employer.getName();
     }
 
-    public void show(){
-        System.out.println("Flown by " + getName());
+    public static void show(){
+        System.out.println("Flown by " + buildCaptain() + "[" + "and " + buildCopilot() +"]");
+    }
+
+    private static String buildCaptain(){
+        return "Mr, Hermann ";
+    }
+
+    private static String buildCopilot(){
+        return "Whitetaker, John";
     }
 
     @Override

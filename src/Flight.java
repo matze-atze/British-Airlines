@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Flight {
 
-    private Pilot captian;
+    private Pilot captain;
     private Pilot coPilot;
 
     private Date departure;                                     // abflug des Fluges (z.B. 08.10.2022)
@@ -56,7 +56,7 @@ public class Flight {
             passengerCounter++;
         }
 
-        this.captian = captain;
+        this.captain = captain;
 
         System.out.println(toString() + " is created");
     }
@@ -68,7 +68,7 @@ public class Flight {
     }
 
     public Pilot getCaptian() {
-        return captian;
+        return captain;
     }
 
     public Pilot getCoPilot() {
@@ -114,8 +114,8 @@ public class Flight {
         this.departure = departure;
     }
 
-    public void setCaptian(Pilot captian) {
-        this.captian = captian;
+    public void setCaptain(Pilot captain) {
+        this.captain = captain;
     }
     public void setCoPilot(Pilot coPilot) {
         this.coPilot = coPilot;

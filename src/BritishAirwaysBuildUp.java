@@ -44,6 +44,12 @@ public class BritishAirwaysBuildUp {
     Date fromArrivalDate = Date.from(fromArrivalCallender.toZonedDateTime().toInstant());
 
 
+    //Creating Flight
+    theFlight = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", airport1,
+            airport2, thePlane, new Pilot[]{captain, copilot}, new BoardingCard[] {cardToNy},
+            new Passenger[]{passenger1, passenger2}, captain);
+    theFlight.setCoPilot(copilot);
+
     // Creating the Airline
     theAirline = buildAirline();
 
@@ -52,9 +58,8 @@ public class BritishAirwaysBuildUp {
     toSeat2 = new Seat('B', 16, Seat.SeatClass.BUSINESS);
     fromSeat = toSeat1;
 
-    // creating the 2 Pilots
-    captain = buildCaptain();
-    copilot = buildCopilot();
+    // creating the Pilots
+    Pilot.show();
 
     // creating the 2 Cities
     city1 = new City("Frankfurt (Main)");
@@ -77,25 +82,20 @@ public class BritishAirwaysBuildUp {
     passenger1 = buildPassenger1();
     passenger2 = buildPassenger2();
 
-
-    theFlight = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", airport1,
-            airport2, thePlane, new Pilot[]{captain, copilot}, new BoardingCard[] {cardToNy},
-            new Passenger[]{passenger1, passenger2}, captain);
-    theFlight.setCoPilot(copilot);
   }
-  private static Airline buildAirline() {return new Airline("British Airways", "BA");}
-  private static Plane buildPlane() {return new Plane("A320", "10000", 0.0F, "D-ABZI");}
+  private static Airline buildAirline() {
+    return new Airline("British Airways", "BA");}
+  private static Plane buildPlane() {
+    return new Plane("A320", "10000", 0.0F, "D-ABZI");}
 
   private static Passenger buildPassenger1() {
-    return new Passenger("DillmannNMr");
+    return new Passenger("Franz");
   }
 
-  private static Passenger buildPassenger2() { return new Passenger("HerrmannAMr");}
+  private static Passenger buildPassenger2() {
+    return new Passenger("Marie");}
 
-  private static Pilot buildCaptain(){
-    return new Pilot("HermannAMr");
-  }
-  private static Pilot buildCopilot(){
-    return new Pilot("John Whitetaker");
-  }
+
+
+
 }
