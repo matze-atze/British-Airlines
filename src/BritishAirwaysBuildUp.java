@@ -1,7 +1,11 @@
+import java.lang.constant.Constable;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * @author Kadir, Matthias, Marcel, Nazanin
+ */
 public class BritishAirwaysBuildUp {
 
   private static Airline theAirline;
@@ -12,7 +16,8 @@ public class BritishAirwaysBuildUp {
   private static Passenger passenger2;
   private static Seat toSeat1;
   private static Seat toSeat2;
-  private static Seat fromSeat;
+  private static Seat fromSeat1;
+  private static Seat fromSeat2;
   private static City city1;
   private static City city2;
   private static Plane thePlane;
@@ -56,7 +61,8 @@ public class BritishAirwaysBuildUp {
     // Creating the Seats
     toSeat1 = new Seat('A', 16, Seat.SeatClass.BUSINESS);
     toSeat2 = new Seat('B', 16, Seat.SeatClass.BUSINESS);
-    fromSeat = toSeat1;
+    fromSeat1 = toSeat1;
+    fromSeat2 = toSeat2;
 
     // creating the Pilots
     Pilot.show();
@@ -80,7 +86,8 @@ public class BritishAirwaysBuildUp {
 
     // creating the Passengers
     passenger1 = buildPassenger1();
-    passenger2 = buildPassenger2();
+
+    //passenger2 = buildPassenger2();
 
   }
   private static Airline buildAirline() {
@@ -89,11 +96,11 @@ public class BritishAirwaysBuildUp {
     return new Plane("A320", "10000", 0.0F, "D-ABZI");}
 
   private static Passenger buildPassenger1() {
-    return new Passenger("Franz");
+    return new Passenger("Franz on seat " + toSeat1 + " and Marie on seat " + toSeat2);
   }
 
-  private static Passenger buildPassenger2() {
-    return new Passenger("Marie");}
+  //private static Passenger buildPassenger2() {
+  //  return new Passenger("Marie");}
 
 
 

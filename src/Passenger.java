@@ -9,7 +9,7 @@ public class Passenger {
 
   public Passenger(String name){
     this.name = name;
-    System.out.println(toString()+" is created.");
+    System.out.println("Carrying passengers" + toString() );
   }
 
   public String getName(){
@@ -30,7 +30,7 @@ public class Passenger {
   }
 
   public String toString(){
-    return getClass().getSimpleName()+" "+name;
+    return " "+name;
   }
 
   public void delay(){

@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 /**
  * @author Kadir Erzurum
+ * @version 14.10.2022
  */
 public class Pilot
 {
