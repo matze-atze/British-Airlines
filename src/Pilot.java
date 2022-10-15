@@ -8,7 +8,7 @@ import java.util.HashSet;
  */
 public class Pilot
 {
-    private static String name;
+    private String name;
     protected Airline employer;
     private Set<Flight> tasks = new HashSet<>();
 
@@ -16,8 +16,8 @@ public class Pilot
         this.name = name;
     }
 
-    public static String getName() {
-        return name;
+    public String getName() {
+        return this.name;
     }
 
     public void setName(String namePilot){

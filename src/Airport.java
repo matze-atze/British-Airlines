@@ -79,4 +79,9 @@ public class Airport {
     public String toString() {
         return getClass().getSimpleName() + iataCode;
     }
+
+    public void show(boolean isStartAirport) {
+        String s = isStartAirport ? "departing " : "arriving ";
+        System.out.println(s + name + " near " + this.getCity()[0]);
+    }
 }

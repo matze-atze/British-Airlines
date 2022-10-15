@@ -16,7 +16,6 @@ public class Airline
     {
         this.name = name;
         this.IATAcode = IATAcode;
-        System.out.println(show());
     }
 
     public String getName() {
@@ -56,7 +55,8 @@ public class Airline
         return getClass().getSimpleName()+" "+ IATAcode;
     }
 
-    public String show() {
-        return "Offered by " + getName() + " (" + getIATAcode() + ")";}
+    public void show() {
+        System.out.println("Offered by " + getName() + " (" + getIATAcode() + ")");
+    }
 }
 

@@ -10,7 +10,7 @@ public class Flight {
 
     private Pilot captain;
     private Pilot coPilot;
-
+    private Airline provider;
     private Date departure;                                     // abflug des Fluges (z.B. 08.10.2022)
     private Date arrival;                                     // ankunft des Fluges (z.B. 08.10.2022)
     private String flightNumber;                              // Flugnummner (z.B. AZ.0407)
@@ -57,8 +57,6 @@ public class Flight {
         }
 
         this.captain = captain;
-
-        System.out.println(toString() + " on 2022-10-12");
     }
 
     // GETTER
@@ -185,6 +183,10 @@ public class Flight {
         }
     }
 
+    public void setProvider(Airline provider) {
+        this.provider = provider;
+    }
+
     //Methoden
 
     /**
@@ -197,5 +199,21 @@ public class Flight {
 
     public String toString(){
         return getClass().getSimpleName()+ " " + flightNumber;
+    }
+
+    public void show() {
+        System.out.println("Flight " + flightNumber + " on " + this.departure);
+        provider.show();
+        captain.show(true);
+        coPilot.show(false);
+        startAirport.show(true);
+        destAirport.show(false);
+        plane.show();
+        System.out.print("Carrying passenger/s: ");
+        for (Passenger passenger : passengers) {
+            if (passenger != null) {
+                passenger.show();
+            }
+        }
     }
 }

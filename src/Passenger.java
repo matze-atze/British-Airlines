@@ -36,4 +36,8 @@ public class Passenger {
   public void delay(){
     System.out.println(toString()+" is delayed.");
   }
+
+  public void show() {
+    System.out.print(name + " ");
+  }
 }

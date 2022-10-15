@@ -1,4 +1,3 @@
-import java.lang.constant.Constable;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -10,10 +9,11 @@ public class BritishAirwaysBuildUp {
 
   private static Airline theAirline;
   private static Flight theFlight;
-  private static Pilot captain;
-  private static Pilot copilot;
-  private static Passenger passenger1;
-  private static Passenger passenger2;
+  private static Pilot theCaptain;
+  private static Pilot theCopilot;
+  private static Passenger thePassenger1;
+  private static Passenger thePassenger2;
+  private static BoardingCard theBoardingCard;
   private static Seat toSeat1;
   private static Seat toSeat2;
   private static Seat fromSeat1;
@@ -22,12 +22,78 @@ public class BritishAirwaysBuildUp {
   private static City city2;
   private static Plane thePlane;
   private static BoardingCard cardToNy;
-  private static Airport airport1;
-  private static Airport airport2;
-  
+  private static Airport theAirport1;
+  private static Airport theAirport2;
+
   public static void main(String[] args) {
     //TODO richtige Zeiten Angeben
+    //theFlight.delay(new Date());
 
+    // creating the Passengers
+    buildPassenger1();
+    buildPassenger2();
+
+    // creating the Pilots
+    buildCaptain();
+    buildCopilot();
+
+    //Creating Flight
+    buildFlight();
+
+    // Creating the Airline
+    buildAirline();
+
+    theFlight.setProvider(theAirline);
+
+    // creating the 2 Cities
+    buildCity1();
+    buildCity2();
+
+    // creating the Boarding Card
+    buildBoardingCard();
+
+    // creating the Airport
+    buildAirport1();
+    buildAirport2();
+    theFlight.setStartAirport(theAirport1);
+    theFlight.setDestAirport(theAirport2);
+
+    // creating the Plane
+    buildPlane();
+    theFlight.setPlane(thePlane);
+
+    //passenger2 = buildPassenger2();
+    theFlight.show();
+  }
+
+
+
+  /*
+░█▀▄░█░█░▀█▀░█░░░█▀▄░░░█▄█░█▀▀░▀█▀░█░█░█▀█░█▀▄░█▀▀
+░█▀▄░█░█░░█░░█░░░█░█░░░█░█░█▀▀░░█░░█▀█░█░█░█░█░▀▀█
+░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀░░░░▀░▀░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀░░▀▀▀
+ */
+
+  private static void buildAirline() {
+    theAirline = new Airline("British Airways", "BA");}
+  private static void buildPlane() {
+    thePlane =  new Plane("A320", "10000", 0.0F, "D-ABZI");
+  }
+
+
+  private static void buildPassenger1() {
+    thePassenger1 = new Passenger("Franz");
+  }
+  private static void buildPassenger2() {
+    thePassenger1 = new Passenger("Marie");
+  }
+
+
+
+  /**
+   * @author Matthias Vollmer
+   */
+  private static void buildFlight() {
     // creating the Date of the first flights departure
     GregorianCalendar toDepartureCalendar = new GregorianCalendar();
     toDepartureCalendar.set(2022, 6, 8);
@@ -48,15 +114,17 @@ public class BritishAirwaysBuildUp {
     fromArrivalCallender.set(2022, 6, 11);
     Date fromArrivalDate = Date.from(fromArrivalCallender.toZonedDateTime().toInstant());
 
+    theFlight = new Flight(toDepartureDate, toArrivalDate,"LH400", theAirport1,
+            theAirport2, thePlane, new Pilot[]{theCaptain, theCopilot}, new BoardingCard[] {cardToNy},
+            new Passenger[]{thePassenger1, thePassenger2}, theCaptain);
+    theFlight.setCoPilot(theCopilot);
+  }
 
-    //Creating Flight
-    theFlight = new Flight(toDepartureDate, toArrivalDate,"LH400_20220608", airport1,
-            airport2, thePlane, new Pilot[]{captain, copilot}, new BoardingCard[] {cardToNy},
-            new Passenger[]{passenger1, passenger2}, captain);
-    theFlight.setCoPilot(copilot);
-
-    // Creating the Airline
-    theAirline = buildAirline();
+  private static void buildBoardingCard() {
+    // creating the Date of the first flights arrival
+    GregorianCalendar toArrivalCalendar = new GregorianCalendar();
+    toArrivalCalendar.set(2022, 6, 8);
+    Date toArrivalDate = Date.from(toArrivalCalendar.toZonedDateTime().toInstant());
 
     // Creating the Seats
     toSeat1 = new Seat('A', 16, Seat.SeatClass.BUSINESS);
@@ -64,41 +132,30 @@ public class BritishAirwaysBuildUp {
     fromSeat1 = toSeat1;
     fromSeat2 = toSeat2;
 
-    // creating the Pilots
-    Pilot.show();
+    theBoardingCard = new BoardingCard(new BigInteger("502675128554624"),"65 18:50 5D D", toArrivalDate, toSeat1);
+  }
 
-    // creating the 2 Cities
+  private static void buildCaptain() {
+    theCaptain = new Pilot("Mr. Hermann");
+  }
+
+  private static void buildCopilot() {
+    theCopilot = new Pilot("Whitetaker, John");
+  }
+
+  private static void buildAirport1() {
+    theAirport1 = new Airport("Frankfurt", "FRA", city1, new City[]{city1, city2}, null);
+  }
+  private static void buildAirport2() {
+    theAirport2 = new Airport("LaGuardia", "LGA", city2, new City[]{city2}, null);
+  }
+
+  private static void buildCity1() {
     city1 = new City("Frankfurt (Main)");
+  }
+  private static void buildCity2() {
     city2 = new City("New York");
-
-    // creating the Boarding Card
-    cardToNy = new BoardingCard(new BigInteger("502675128554624"),"65 18:50 5D D", toArrivalDate);
-
-    // creating the start Airport
-    City[] singletonFlight = {city1, city2};
-
-    // creating the Airport
-    airport1 = new Airport("Frankfurt", "FRA", city1, singletonFlight, null);
-    airport2 = new Airport("LaGuardia", "LGA", city2, new City[]{city2}, null);
-
-    // creating the Plane
-    thePlane = buildPlane();
-
-    // creating the Passengers
-    passenger1 = buildPassenger1();
-
-    //passenger2 = buildPassenger2();
-
   }
-  private static Airline buildAirline() {
-    return new Airline("British Airways", "BA");}
-  private static Plane buildPlane() {
-    return new Plane("A320", "10000", 0.0F, "D-ABZI");}
-
-  private static Passenger buildPassenger1() {
-    return new Passenger("Franz on seat " + toSeat1 + " and Marie on seat " + toSeat2);
-  }
-
   //private static Passenger buildPassenger2() {
   //  return new Passenger("Marie");}
 

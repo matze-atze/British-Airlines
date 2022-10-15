@@ -71,4 +71,8 @@ public class Plane {
     public String toString() {
         return getClass().getSimpleName() + " " + serialNumber;
     }
+
+    public void show() {
+        System.out.println("using " + tailNumber + " (" + model + ")");
+    }
 }

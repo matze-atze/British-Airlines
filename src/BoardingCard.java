@@ -13,7 +13,7 @@ public class BoardingCard {
   private Seat reservables; //mehrere BoardingCars können den gleichen Sitz reservieren in einem Planungszeitraum
 
 
-  public BoardingCard(BigInteger identificationNumber, String gateCode, Date boardingTime){
+  public BoardingCard(BigInteger identificationNumber, String gateCode, Date boardingTime, Seat seat){
     if (identificationNumber.compareTo(BigInteger.valueOf(0)) < 0){
       throw new IllegalArgumentException(identificationNumber+" as identificationNumber is negativ.");
     }
@@ -22,6 +22,7 @@ public class BoardingCard {
     this.gateCode = gateCode;
     this.boardingTime = boardingTime;
     System.out.println(toString()+" is created.");
+    this.reservables = seat;
   }
 
   public BigInteger getIdentificationNumber() {
