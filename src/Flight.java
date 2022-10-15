@@ -105,8 +105,8 @@ public class Flight {
         return passengers;
     }
 
-    // SETTER
 
+    // SETTER
 
     public void setDeparture(Date departure) {
         this.departure = departure;

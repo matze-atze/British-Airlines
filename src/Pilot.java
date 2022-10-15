@@ -44,17 +44,14 @@ public class Pilot
         return this.name + " got hired by " + employer.getName();
     }
 
-    public static void show(){
-        System.out.println("Flown by " + buildCaptain() + "[" + "and " + buildCopilot() +"]");
+    public void show(boolean isCaptain){
+        if (isCaptain) {
+            System.out.print("Flown by " + name);
+        } else {
+            System.out.println(" [and " + name + "]");
+        }
     }
 
-    private static String buildCaptain(){
-        return "Mr, Hermann ";
-    }
-
-    private static String buildCopilot(){
-        return "Whitetaker, John";
-    }
 
     @Override
     public String toString() {
