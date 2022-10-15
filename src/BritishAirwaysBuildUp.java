@@ -85,7 +85,7 @@ public class BritishAirwaysBuildUp {
     thePassenger1 = new Passenger("Franz");
   }
   private static void buildPassenger2() {
-    thePassenger1 = new Passenger("Marie");
+    thePassenger2 = new Passenger("Marie");
   }
 
 

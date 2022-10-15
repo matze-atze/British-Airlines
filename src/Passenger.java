@@ -9,7 +9,6 @@ public class Passenger {
 
   public Passenger(String name){
     this.name = name;
-    System.out.println("Carrying passengers" + toString() );
   }
 
   public String getName(){
@@ -38,6 +37,6 @@ public class Passenger {
   }
 
   public void show() {
-    System.out.print(name + " ");
+    System.out.print(name + ", ");
   }
 }

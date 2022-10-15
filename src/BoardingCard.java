@@ -21,7 +21,6 @@ public class BoardingCard {
     //this.designator = designator;
     this.gateCode = gateCode;
     this.boardingTime = boardingTime;
-    System.out.println(toString()+" is created.");
     this.reservables = seat;
   }
 
