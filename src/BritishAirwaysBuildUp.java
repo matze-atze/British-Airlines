@@ -99,10 +99,10 @@ public class BritishAirwaysBuildUp {
 
 
   private static void buildPassenger1() {
-    thePassenger1 = new Passenger("Franz");
+    thePassenger1 = new Passenger("Müller, Franz");
   }
   private static void buildPassenger2() {
-    thePassenger2 = new Passenger("Marie");
+    thePassenger2 = new Passenger("Müller, Marie");
   }
 
 
