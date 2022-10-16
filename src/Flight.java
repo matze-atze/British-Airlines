@@ -31,6 +31,7 @@ public class Flight {
 
     public Flight(Date arrival, Date departure, String flightNumber, Airport startAirport, Airport destAirport, Plane plane,
                   Pilot[] pilots, BoardingCard[] boardingCard, Passenger[] passengers, Pilot captain) {
+
         this.arrival = arrival;
         this.departure = departure;
 

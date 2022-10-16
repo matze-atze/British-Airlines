@@ -9,6 +9,8 @@ public class BritishAirwaysBuildUp {
 
   private static Airline theAirline;
   private static Flight theFlight;
+
+  private static Flight flightBack;
   private static Pilot theCaptain;
   private static Pilot theCopilot;
   private static Passenger thePassenger1;
@@ -29,6 +31,8 @@ public class BritishAirwaysBuildUp {
     //TODO richtige Zeiten Angeben
     //theFlight.delay(new Date());
 
+
+
     // creating the Passengers
     buildPassenger1();
     buildPassenger2();
@@ -44,6 +48,7 @@ public class BritishAirwaysBuildUp {
     buildAirline();
 
     theFlight.setProvider(theAirline);
+    flightBack.setProvider(theAirline);
 
     // creating the 2 Cities
     buildCity1();
@@ -57,13 +62,19 @@ public class BritishAirwaysBuildUp {
     buildAirport2();
     theFlight.setStartAirport(theAirport1);
     theFlight.setDestAirport(theAirport2);
+    flightBack.setStartAirport(theAirport2);
+    flightBack.setDestAirport(theAirport1);
 
     // creating the Plane
     buildPlane();
     theFlight.setPlane(thePlane);
+    flightBack.setPlane(thePlane);
 
-    //passenger2 = buildPassenger2();
+    // flight there report
     theFlight.show();
+
+    // flight back report
+    flightBack.show();
   }
 
 
@@ -114,11 +125,21 @@ public class BritishAirwaysBuildUp {
     fromArrivalCallender.set(2022, 6, 11);
     Date fromArrivalDate = Date.from(fromArrivalCallender.toZonedDateTime().toInstant());
 
-    theFlight = new Flight(toDepartureDate, toArrivalDate,"LH400", theAirport1,
-            theAirport2, thePlane, new Pilot[]{theCaptain, theCopilot}, new BoardingCard[] {cardToNy},
-            new Passenger[]{thePassenger1, thePassenger2}, theCaptain);
+    Pilot[] pilots = new Pilot[]{theCaptain, theCopilot};
+    BoardingCard[] boardingCard = new BoardingCard[] {cardToNy};
+    Passenger[] passengers = new Passenger[]{thePassenger1, thePassenger2};
+
+    theFlight = new Flight(toArrivalDate, toDepartureDate,"LH400", theAirport1,
+            theAirport2, thePlane, pilots, boardingCard,
+            passengers, theCaptain);
     theFlight.setCoPilot(theCopilot);
+
+    flightBack = new Flight(fromArrivalDate,fromDepartureDate,"LH400", theAirport2,
+            theAirport1,thePlane, pilots, boardingCard, passengers,theCaptain);
+    flightBack.setCoPilot(theCopilot);
   }
+
+
 
   private static void buildBoardingCard() {
     // creating the Date of the first flights arrival
