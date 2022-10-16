@@ -15,7 +15,9 @@ public class BritishAirwaysBuildUp {
   private static Pilot theCopilot;
   private static Passenger thePassenger1;
   private static Passenger thePassenger2;
-  private static BoardingCard theBoardingCard;
+  private static BoardingCard theToBoardingCard1;
+  private static BoardingCard theToBoardingCard2;
+  private static BoardingCard theFromBoardingCard;
   private static Seat toSeat1;
   private static Seat toSeat2;
   private static Seat fromSeat1;
@@ -56,6 +58,10 @@ public class BritishAirwaysBuildUp {
 
     // creating the Boarding Card
     buildBoardingCard();
+    thePassenger1.addPermission(theToBoardingCard1);
+    thePassenger1.addPermission(theFromBoardingCard);
+    thePassenger2.addPermission(theToBoardingCard2);
+
 
     // creating the Airport
     buildAirport1();
@@ -120,7 +126,7 @@ public class BritishAirwaysBuildUp {
     fromDepartureCalender.set(2022, 6, 11);
     Date fromDepartureDate = Date.from(fromDepartureCalender.toZonedDateTime().toInstant());
 
-    // creating the Date of the second flights departure
+    // creating the Date of the second flights arrival
     GregorianCalendar fromArrivalCallender = new GregorianCalendar();
     fromArrivalCallender.set(2022, 6, 11);
     Date fromArrivalDate = Date.from(fromArrivalCallender.toZonedDateTime().toInstant());
@@ -146,13 +152,23 @@ public class BritishAirwaysBuildUp {
     toArrivalCalendar.set(2022, 6, 8);
     Date toArrivalDate = Date.from(toArrivalCalendar.toZonedDateTime().toInstant());
 
+    // creating the Date of the second flights departure
+    GregorianCalendar fromDepartureCalender = new GregorianCalendar();
+    fromDepartureCalender.set(2022, 6, 11);
+    Date fromDepartureDate = Date.from(fromDepartureCalender.toZonedDateTime().toInstant());
+
     // Creating the Seats
     toSeat1 = new Seat('A', 16, Seat.SeatClass.BUSINESS);
     toSeat2 = new Seat('B', 16, Seat.SeatClass.BUSINESS);
     fromSeat1 = toSeat1;
     fromSeat2 = toSeat2;
 
-    theBoardingCard = new BoardingCard(new BigInteger("502675128554624"),"65 18:50 5D D", toArrivalDate, toSeat1);
+    theToBoardingCard1 = new BoardingCard(new BigInteger("502675128554624"),"65 18:50 5D D", toArrivalDate, toSeat1);
+    theToBoardingCard1.setEvent(theFlight);
+    theToBoardingCard2 = new BoardingCard(new BigInteger("456415602377890"), "65 18:50 5D D", toArrivalDate, toSeat2);
+    theToBoardingCard2.setEvent(theFlight);
+    theFromBoardingCard = new BoardingCard(new BigInteger("456434531234568"), "58 10:50 4C C", fromDepartureDate , toSeat1);
+    theFromBoardingCard.setEvent(flightBack);
   }
 
   private static void buildCaptain() {

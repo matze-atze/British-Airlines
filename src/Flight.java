@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Die Klasse kann benutzt werden um Objekte von Flug zu erzeugen
@@ -203,6 +205,7 @@ public class Flight {
     }
 
     public void show() {
+        System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("Flight " + flightNumber + " on " + this.departure);
         provider.show();
         captain.show(true);
@@ -211,10 +214,21 @@ public class Flight {
         destAirport.show(false);
         plane.show();
         System.out.print("Carrying passenger/s: ");
+
+        // because we could have null as a passenger in passenger
+        // so we don't print a ", " on the last entry
+        List<Passenger> notNullPassengers = new ArrayList<>();
         for (Passenger passenger : passengers) {
             if (passenger != null) {
-                passenger.show();
+                notNullPassengers.add(passenger);
             }
         }
+        notNullPassengers.forEach(passenger -> {
+            passenger.show(this);
+            if (!(passenger == notNullPassengers.get(notNullPassengers.size() -1))) {
+                System.out.print("; ");
+            }
+        });
+        System.out.println("");
     }
 }
