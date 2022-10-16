@@ -44,6 +44,6 @@ public class Passenger {
       BoardingCard bc = it.next();
       if (bc.getEvent() == forFlight) onSeat = bc.getReservables();
     }
-    System.out.print(name + " on Seat: " + onSeat);
+    System.out.print(name + " on " + onSeat);
   }
 }
