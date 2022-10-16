@@ -19,7 +19,7 @@ public class Passenger {
     return permissions;
   }
 
-  public boolean addBerechtigung(BoardingCard nextPermission){
+  public boolean addPermission(BoardingCard nextPermission){
     boolean success = false;
     if (nextPermission!=null){
       permissions.add(nextPermission);
