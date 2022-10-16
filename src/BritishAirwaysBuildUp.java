@@ -127,15 +127,14 @@ public class BritishAirwaysBuildUp {
 
     Pilot[] pilots = new Pilot[]{theCaptain, theCopilot};
     BoardingCard[] boardingCard = new BoardingCard[] {cardToNy};
-    Passenger[] passengers = new Passenger[]{thePassenger1, thePassenger2};
 
     theFlight = new Flight(toArrivalDate, toDepartureDate,"LH400", theAirport1,
             theAirport2, thePlane, pilots, boardingCard,
-            passengers, theCaptain);
+            new Passenger[]{thePassenger1, thePassenger2}, theCaptain);
     theFlight.setCoPilot(theCopilot);
 
     flightBack = new Flight(fromArrivalDate,fromDepartureDate,"LH400", theAirport2,
-            theAirport1,thePlane, pilots, boardingCard, passengers,theCaptain);
+            theAirport1,thePlane, pilots, boardingCard, new Passenger[]{thePassenger1},theCaptain);
     flightBack.setCoPilot(theCopilot);
   }
 
